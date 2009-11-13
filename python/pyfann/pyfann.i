@@ -108,7 +108,7 @@
     for (j = 0; j< num; j++)
     {
         PyObject* o1=PySequence_GetItem($input,j);
-        if ((unsigned int)PySequence_Length(o1) == dim) {
+        if ((unsigned int)PySequence_Length(o1) != dim) {
             PyErr_SetString(PyExc_ValueError,"Size mismatch. All items must be of the same size");
             SWIG_fail;
         }
