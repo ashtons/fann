@@ -1,0 +1,33 @@
+Section: Neural Network Theory
+
+This section will briefly explain the theory of neural networks (hereafter known as NN) and artificial neural networks (hereafter known as ANN). For a more in depth explanation of these concepts please consult the literature; [Hassoun, 1995] has good coverage of most concepts of ANN and [Hertz et al., 1991] describes the mathematics of ANN very thoroughly, while [Anderson, 1995] has a more psychological and physiological approach to NN and ANN. For the pragmatic I (SN) could recommend [Tettamanzi and Tomassini, 2001], which has a short and easily understandable introduction to NN and ANN.
+
+Topic: Neural Networks
+
+The human brain is a highly complicated machine capable of solving very complex problems. Although we have a good understanding of some of the basic operations that drive the brain, we are still far from understanding everything there is to know about the brain.
+
+In order to understand ANN, you will need to have a basic knowledge of how the internals of the brain work. The brain is part of the central nervous system and consists of a very large NN. The NN is actually quite complicated, so the following discussion shall be relegated to the details needed to understand ANN, in order to simplify the explanation.
+
+The NN is a network consisting of connected neurons. The center of the neuron is called the nucleus. The nucleus is connected to other nucleuses by means of the dendrites and the axon. This connection is called a synaptic connection.
+
+The neuron can fire electric pulses through its synaptic connections, which is received at the dendrites of other neurons.
+
+When a neuron receives enough electric pulses through its dendrites, it activates and fires a pulse through its axon, which is then received by other neurons. In this way information can propagate through the NN. The synaptic connections change throughout the lifetime of a neuron and the amount of incoming pulses needed to activate a neuron (the threshold) also change. This behavior allows the NN to learn.
+
+The human brain consists of around 10^11 neurons which are highly interconnected with around 10^15 connections [Tettamanzi and Tomassini, 2001]. These neurons activates in parallel as an effect to internal and external sources. The brain is connected to the rest of the nervous system, which allows it to receive information by means of the five senses and also allows it to control the muscles.
+
+Topic: Artificial Neural Networks
+
+It is not possible (at the moment) to make an artificial brain, but it is possible to make simplified artificial neurons and artificial neural networks. These ANNs can be made in many different ways and can try to mimic the brain in many different ways.
+
+ANNs are not intelligent, but they are good for recognizing patterns and making simple rules for complex problems. They also have excellent training capabilities which is why they are often used in artificial intelligence research.
+
+ANNs are good at generalizing from a set of training data. E.g. this means an ANN given data about a set of animals connected to a fact telling if they are mammals or not, is able to predict whether an animal outside the original set is a mammal from its data. This is a very desirable feature of ANNs, because you do not need to know the characteristics defining a mammal, the ANN will find out by itself.
+
+Topic: Training an ANN
+
+When training an ANN with a set of input and output data, we wish to adjust the weights in the ANN, to make the ANN give the same outputs as seen in the training data. On the other hand, we do not want to make the ANN too specific, making it give precise results for the training data, but incorrect results for all other data. When this happens, we say that the ANN has been over-fitted.
+
+The training process can be seen as an optimization problem, where we wish to minimize the mean square error of the entire set of training data. This problem can be solved in many different ways, ranging from standard optimization heuristics like simulated annealing, through more special optimization techniques like genetic algorithms to specialized gradient descent algorithms like backpropagation.
+
+The most used algorithm is the backpropagation algorithm, but this algorithm has some limitations concerning, the extent of adjustment to the weights in each iteration. This problem has been solved in more advanced algorithms like RPROP [Riedmiller and Braun, 1993] and quickprop [Fahlman, 1988]. 

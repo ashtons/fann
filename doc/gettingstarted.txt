@@ -1,0 +1,92 @@
+Section: Getting Started
+
+An ANN is normally run in two different modes, a training mode and an execution mode. Although it is possible to do this in the same program, using different programs is recommended.
+
+There are several reasons to why it is usually a good idea to write the training and execution in two different programs, but the most obvious is the fact that a typical ANN system is only trained once, while it is executed many times.
+
+Topic: Training
+
+The following is a simple program which trains an ANN with a data set and then saves the ANN to a file.
+
+Simple training example:
+
+(code)
+#include "fann.h"
+
+int main()
+{
+	const unsigned int num_input = 2;
+	const unsigned int num_output = 1;
+	const unsigned int num_layers = 3;
+	const unsigned int num_neurons_hidden = 3;
+	const float desired_error = (const float) 0.001;
+	const unsigned int max_epochs = 500000;
+	const unsigned int epochs_between_reports = 1000;
+
+	struct fann *ann = fann_create_standard(num_layers, num_input, num_neurons_hidden, num_output);
+
+	fann_set_activation_function_hidden(ann, FANN_SIGMOID_SYMMETRIC);
+	fann_set_activation_function_output(ann, FANN_SIGMOID_SYMMETRIC);
+
+	fann_train_on_file(ann, "xor.data", max_epochs, epochs_between_reports, desired_error);
+
+	fann_save(ann, "xor_float.net");
+
+	fann_destroy(ann);
+
+	return 0;
+}
+(end)
+          
+
+The file xor.data, used to train the xor function:
+
+(code)
+4 2 1
+-1 -1
+-1
+-1 1
+1
+1 -1
+1
+1 1
+-1
+(end)
+	  
+
+The first line consists of three numbers: The first is the number of training pairs in the file, the second is the number of inputs and the third is the number of outputs. The rest of the file is the actual training data, consisting of one line with inputs, one with outputs etc.
+
+This example introduces several fundamental functions, namely <fann_create_standard>, <fann_train_on_file>, <fann_save>, and <fann_destroy>.
+
+Topic: Execution
+
+The following example shows a simple program which executes a single input on the ANN. The program introduces two new functions (<fann_create_from_file> and <fann_run>) which were not used in the training procedure, as well as the <fann_type> type.
+
+Simple execution example:
+
+(code)
+#include <stdio.h>
+#include "floatfann.h"
+
+int main()
+{
+	fann_type *calc_out;
+	fann_type input[2];
+
+	struct fann *ann = fann_create_from_file("xor_float.net");
+
+	input[0] = -1;
+	input[1] = 1;
+	calc_out = fann_run(ann, input);
+
+	printf("xor test (%f,%f) -> %f\n", input[0], input[1], calc_out[0]);
+
+	fann_destroy(ann);
+	return 0;
+}
+(end)
+          
+
+Topic: Getting Help
+
+If after reading the documentation you are still having problems, or have a question that is not covered in the documentation, please consult the fann-general mailing list. Archives and subscription information are available at http://lists.sourceforge.net/mailman/listinfo/fann-general. 

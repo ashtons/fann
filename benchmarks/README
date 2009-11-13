@@ -1,0 +1,27 @@
+Programs used to generate benchmarks.
+
+performance - Program to benchmark the performance of running the libraries
+quality - Program to benchmark the quality of the training algorithms
+benchmark.sh - Shell file that runs a series of benchmarks
+gnuplot - File containing gnuplot commands for displaying graphs
+
+In order to run benchmarks, run:
+make
+./benchmarks.sh
+gnuplot < gnuplot
+
+A file named allplots.ps will display the benchmark graphs.
+
+In order to generate benchmarks against other libraries (jneural and
+lwneuralnet), these libraries need to be installed (they can be
+downloaded from http://voltar-confed.org/jneural/ and
+http://sourceforge.net/projects/lwneuralnet/). The Makefile need to be
+altered to point to these libraries and the performance.cc and
+quality.cc files need to be altered in order to use the libraries
+(just uncomment a few lines in the top).
+
+Pregenerated benchmarks are available in the benchmark.pdf file.
+These benchmarks are generated on a AMD Athlon XP 1600+ machine 
+(actually only 1400 MHz) with a 256 KB L2 cache and a 128 KB L1 cache.
+An earlier version of the library is benchmarked and commented in the 
+full report (this benchmark also include benchmarks on an iPAQ).

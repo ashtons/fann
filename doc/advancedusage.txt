@@ -1,0 +1,84 @@
+Section: Advanced Usage
+
+This section describes some of the low-level functions and how they can be used to obtain more control of the fann library. For a full list of functions, please see the Reference Manual, which has an explanation of all the fann library functions. Also feel free to take a look at the source code.
+
+This section describes different procedures, which can help to get more power out of the fann library.
+
+Topic: Adjusting Parameters
+
+Several different parameters exists in an ANN, these parameters are given defaults in the fann library, but they can be adjusted at runtime. There is no sense in adjusting most of these parameters after the training, since it would invalidate the training, but it does make sense to adjust some of the parameters during training, as will be described in Training and Testing. Generally speaking, these are parameters that should be adjusted before training.
+
+The training algorithm is one of the most important parameters. The default training algorithm is FANN_TRAIN_RPROP, but this may not always be the best choice. See <fann_set_training_algorithm> for more information about the different training algorithms.
+
+The training algorithms have several different parameters which can be set. For FANN_TRAIN_INCREMENTAL, FANN_TRAIN_BATCH, FANN_TRAIN_QUICKPROP the most important parameter is the learning rate, but unfortunately this is also a parameter which is hard to find a reasonable default for. I (SN) have several times ended up using 0.7, but it is a good idea to test several different learning rates when training a network. It is also worth noting that the activation function has a profound effect on the optimal learning rate [Thimm and Fiesler, 1997]. The learning rate can be set by using the <fann_set_learning_rate> function.
+
+The initial weights are random values between -0.1 and 0.1, if other weights are preferred, the weights can be altered by the <fann_randomize_weights> or <fann_init_weights> function.
+
+In [Thimm and Fiesler, High-Order and Multilayer Perceptron Initialization, 1997], Thimm and Fiesler state that, "An (sic) fixed weight variance of 0.2, which corresponds to a weight range of [-0.77, 0.77], gave the best mean performance for all the applications tested in this study. This performance is similar or better as compared to those of the other weight initialization methods."
+
+The standard activation function is the sigmoid activation function, but it is also possible to use other functions. A list of the currently available activation functions is available in the <fann_activationfunc_enum> section. The activation function can be set for a single neuron using the <fann_set_activation_function> function and for a group of neurons by the <fann_set_activation_function_hidden> and the <fann_set_activation_function_output> functions. Likewise the steepness parameter used in the activation function can be adjusted with the <fann_set_activation_steepness> function.
+
+FANN distinguishes between the hidden layers and the output layer, to allow more flexibility. This is especially a good idea for users wanting discrete output from the network, since they can set the activation function for the output to threshold. Please note, that it is not possible to train a network when using the threshold activation function, due to the fact, that it is not differentiable.
+
+Topic: Network Design
+
+When creating a network it is necessary to define how many layers, neurons and connections it should have. If the network become too large, the ANN will have difficulties learning and when it does learn it will tend to over-fit resulting in poor generalization. If the network becomes too small, it will not be able to represent the rules needed to learn the problem and it will never gain a sufficiently low error rate.
+
+The number of hidden layers is also important. Generally speaking, if the problem is simple it is often enough to have one or two hidden layers, but as the problems get more complex, so does the need for more layers.
+
+One way of getting a large network which is not too complex, is to adjust the connection_rate parameter given to <fann_create_sparse>. If this parameter is 0.5, the constructed network will have the same amount of neurons, but only half as many connections. It is difficult to say which problems this approach is useful for, but if you have a problem which can be solved by a fully connected network, then it would be a good idea to see if it still works after removing half the connections.
+
+Version 2.0 of the FANN library introduces a new way of creating ANNs, where the neurons are added one by one to the ANN, until it has build an optimal ANN. This approach uses the Cascade2 algorithm and is described in detail in the <Cascade Training> section.
+
+Topic: Understanding the Error Value
+
+The mean square error value is calculated while the ANN is being trained. Some functions are implemented, to use and manipulate this error value. The <fann_get_MSE> function returns the error value and the <fann_reset_MSE> resets the error value. The following explains how the mean square error value is calculated, to give an idea of the value's ability to reveal the quality of the training.
+
+If d is the desired output of an output neuron and y is the actual output of the neuron, the square error is (d *-* y) squared. If two output neurons exists, then the mean square error for these two neurons is the average of the two square errors.
+
+When training with the <fann_train_on_file> function, an error value is printed. This error value is the mean square error for all the training data. Meaning that it is the average of all the square errors in each of the training pairs.
+
+Topic: Training and Testing
+
+Normally it will be sufficient to use the <fann_train_on_file> training function, but sometimes you want to have more control and you will have to write a custom training loop. This could be because you would like another stop criteria, or because you would like to adjust some of the parameters during training. Another stop criteria than the value of the combined mean square error could be that each of the training pairs should have a mean square error lower than a given value.
+
+A highly simplified version of the <fann_train_on_file> function:
+
+(code)
+struct fann_train_data *data = fann_read_train_from_file(filename);
+for(i = 1 ; i <= max_epochs ; i++) {
+  error = fann_train_epoch(ann, data);
+  if ( error < desired_error ) {
+    break;
+  }
+}
+fann_destroy_train(data);
+(end)
+        
+
+This piece of code introduces the <fann_train_epoch> function, which trains the ANN for one epoch and also returns the mean square error. The <struct fann_train_data> structure is also introduced, this structure is a container for the training data. The structure can be used to train the ANN, but it can also be used to test the ANN with data which it has not been trained with.
+
+Test all of the data in a file and calculates the mean square error:
+
+(code)
+struct fann_train_data *data = fann_read_train_from_file(filename);
+fann_reset_MSE(ann);
+fann_test_data(ann, data);
+printf("Mean Square Error: %f\n", fann_get_MSE(ann));
+fann_destroy_train(data);
+(end)
+	
+
+This piece of code introduces another useful function: <fann_test_data> function, which updates the mean square error.
+
+Topic: Avoid Over-Fitting
+
+With the knowledge of how to train and test an ANN, a new approach to training can be introduced. If too much training is applied to a set of data, the ANN will eventually over-fit, meaning that it will be fitted precisely to this set of training data and thereby loosing generalization. It is often a good idea to test, how good an ANN performs on data that it has not seen before. Testing with data not seen before, can be done while training, to see how much training is required in order to perform well without over-fitting. The testing can either be done by hand, or an automatic test can be applied, which stops the training when the mean square error of the test data is not improving anymore.
+
+Topic: Adjusting Parameters During Training
+
+If a very low mean square error is required it can sometimes be a good idea to gradually decrease the learning rate during training, in order to make the adjusting of weights more subtle. If more precision is required, it might also be a good idea to use double precision floats instead of standard floats.
+
+The threshold activation function is faster than the sigmoid function, but since it is not possible to train with this function, you may wish to consider an alternate approach.
+
+While training the ANN you could slightly increase the steepness parameter of the sigmoid function. This would make the sigmoid function more steep and make it look more like the threshold function. After this training session you could set the activation function to the threshold function and the ANN would work with this activation function. This approach will not work on all kinds of problems, but has been successfully tested on the XOR function.

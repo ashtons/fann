@@ -1,0 +1,259 @@
+set terminal postscript color solid
+set output "allplots.ps"
+
+set grid
+
+set xlabel "Number of neurons in the four layers"
+set ylabel "Nanoseconds per connection"
+
+set logscale
+#set output "performance.ps"
+set title "Performance of execution"
+plot "fann_performance.out" title "fann" with lines -1, \
+ "fann_stepwise_performance.out" title "fann (stepwise)" with lines 2, \
+ "fann_fixed_performance.out" title "fann (fix)" with lines 1, \
+ "lwnn_performance.out" title "lwnn" with lines 8, \
+ "jneural_performance.out" title "jneural" with lines 9
+
+set nologscale
+
+set xlabel "Seconds of training"
+set ylabel "Mean square error"
+
+set logscale x
+#set output "building.ps"
+set title "building"
+plot "building.fann_rprop.test.out" title "fann rprop test" with lines -1, \
+ "building.fann_rprop_stepwise.test.out" title "fann rprop (stepwise) test" with lines 2, \
+ "building.fann_cascade_rprop_multi_activation.test.out" title "fann cascade test" with lines 1, \
+ "building.fann_quickprop.test.out" title "fann quickprop test" with lines 3, \
+ "building.fann_batch.test.out" title "fann batch test" with lines 4, \
+ "building.fann_incremental.test.out" title "fann incremental test" with lines 5, \
+ "building.fann_incremental_momentum.test.out" title "fann incr mom test" with lines 6, \
+ "building.lwnn.test.out" title "lwnn incremental test" with lines 8, \
+ "building.jneural.test.out" title "jneural incremental test" with lines 9, \
+ "building.fann_rprop.train.out" title "fann rprop train" with lines -1, \
+ "building.fann_rprop_stepwise.train.out" title "fann rprop (stepwise) train" with lines 2, \
+ "building.fann_cascade_rprop_multi_activation.train.out" title "fann cascade train" with lines 1, \
+ "building.fann_quickprop.train.out" title "fann quickprop train" with lines 3, \
+ "building.fann_batch.train.out" title "fann batch train" with lines 4, \
+ "building.fann_incremental.train.out" title "fann incremental train" with lines 5, \
+ "building.fann_incremental_momentum.train.out" title "fann incr mom train" with lines 6, \
+ "building.lwnn.train.out" title "lwnn incremental train" with lines 8, \
+ "building.jneural.train.out" title "jneural incremental train" with lines 9
+set nologscale
+
+set logscale x
+#set output "diabetes.ps"
+set title "diabetes"
+plot "diabetes.fann_rprop.test.out" title "fann rprop test" with lines -1, \
+ "diabetes.fann_rprop_stepwise.test.out" title "fann rprop (stepwise) test" with lines 2, \
+ "diabetes.fann_cascade_rprop_multi_activation.test.out" title "fann cascade test" with lines 1, \
+ "diabetes.fann_quickprop.test.out" title "fann quickprop test" with lines 3, \
+ "diabetes.fann_batch.test.out" title "fann batch test" with lines 4, \
+ "diabetes.fann_incremental.test.out" title "fann incremental test" with lines 5, \
+ "diabetes.fann_incremental_momentum.test.out" title "fann incr mom test" with lines 6, \
+ "diabetes.lwnn.test.out" title "lwnn incremental test" with lines 8, \
+ "diabetes.jneural.test.out" title "jneural incremental test" with lines 9, \
+ "diabetes.fann_rprop.train.out" title "fann rprop train" with lines -1, \
+ "diabetes.fann_rprop_stepwise.train.out" title "fann rprop (stepwise) train" with lines 2, \
+ "diabetes.fann_cascade_rprop_multi_activation.train.out" title "fann cascade train" with lines 1, \
+ "diabetes.fann_quickprop.train.out" title "fann quickprop train" with lines 3, \
+ "diabetes.fann_batch.train.out" title "fann batch train" with lines 4, \
+ "diabetes.fann_incremental.train.out" title "fann incremental train" with lines 5, \
+ "diabetes.fann_incremental_momentum.train.out" title "fann incr mom train" with lines 6, \
+ "diabetes.lwnn.train.out" title "lwnn incremental train" with lines 8, \
+ "diabetes.jneural.train.out" title "jneural incremental train" with lines 9
+set nologscale
+
+set logscale x
+#set output "gene.ps"
+set title "gene"
+plot "gene.fann_rprop.test.out" title "fann rprop test" with lines -1, \
+ "gene.fann_rprop_stepwise.test.out" title "fann rprop (stepwise) test" with lines 2, \
+ "gene.fann_cascade_rprop_multi_activation.test.out" title "fann cascade test" with lines 1, \
+ "gene.fann_quickprop.test.out" title "fann quickprop test" with lines 3, \
+ "gene.fann_batch.test.out" title "fann batch test" with lines 4, \
+ "gene.fann_incremental.test.out" title "fann incremental test" with lines 5, \
+ "gene.fann_incremental_momentum.test.out" title "fann incr mom test" with lines 6, \
+ "gene.lwnn.test.out" title "lwnn incremental test" with lines 8, \
+ "gene.jneural.test.out" title "jneural incremental test" with lines 9, \
+ "gene.fann_rprop.train.out" title "fann rprop train" with lines -1, \
+ "gene.fann_rprop_stepwise.train.out" title "fann rprop (stepwise) train" with lines 2, \
+ "gene.fann_cascade_rprop_multi_activation.train.out" title "fann cascade train" with lines 1, \
+ "gene.fann_quickprop.train.out" title "fann quickprop train" with lines 3, \
+ "gene.fann_batch.train.out" title "fann batch train" with lines 4, \
+ "gene.fann_incremental.train.out" title "fann incremental train" with lines 5, \
+ "gene.fann_incremental_momentum.train.out" title "fann incr mom train" with lines 6, \
+ "gene.lwnn.train.out" title "lwnn incremental train" with lines 8, \
+ "gene.jneural.train.out" title "jneural incremental train" with lines 9
+set nologscale
+
+set logscale x
+#set output "mushroom.ps"
+set title "mushroom"
+plot "mushroom.fann_rprop.test.out" title "fann rprop test" with lines -1, \
+ "mushroom.fann_rprop_stepwise.test.out" title "fann rprop (stepwise) test" with lines 2, \
+ "mushroom.fann_cascade_rprop_multi_activation.test.out" title "fann cascade test" with lines 1, \
+ "mushroom.fann_quickprop.test.out" title "fann quickprop test" with lines 3, \
+ "mushroom.fann_batch.test.out" title "fann batch test" with lines 4, \
+ "mushroom.fann_incremental.test.out" title "fann incremental test" with lines 5, \
+ "mushroom.fann_incremental_momentum.test.out" title "fann incr mom test" with lines 6, \
+ "mushroom.lwnn.test.out" title "lwnn incremental test" with lines 8, \
+ "mushroom.jneural.test.out" title "jneural incremental test" with lines 9, \
+ "mushroom.fann_rprop.train.out" title "fann rprop train" with lines -1, \
+ "mushroom.fann_rprop_stepwise.train.out" title "fann rprop (stepwise) train" with lines 2, \
+ "mushroom.fann_cascade_rprop_multi_activation.train.out" title "fann cascade train" with lines 1, \
+ "mushroom.fann_quickprop.train.out" title "fann quickprop train" with lines 3, \
+ "mushroom.fann_batch.train.out" title "fann batch train" with lines 4, \
+ "mushroom.fann_incremental.train.out" title "fann incremental train" with lines 5, \
+ "mushroom.fann_incremental_momentum.train.out" title "fann incr mom train" with lines 6, \
+ "mushroom.lwnn.train.out" title "lwnn incremental train" with lines 8, \
+ "mushroom.jneural.train.out" title "jneural incremental train" with lines 9
+set nologscale
+
+set logscale x
+#set output "parity8.ps"
+set title "parity8"
+plot "parity8.fann_rprop.train.out" title "fann rprop train" with lines -1, \
+ "parity8.fann_rprop_stepwise.train.out" title "fann rprop (stepwise) train" with lines 2, \
+ "parity8.fann_cascade_rprop_multi_activation.train.out" title "fann cascade train" with lines 1, \
+ "parity8.fann_quickprop.train.out" title "fann quickprop train" with lines 3, \
+ "parity8.fann_batch.train.out" title "fann batch train" with lines 4, \
+ "parity8.fann_incremental.train.out" title "fann incremental train" with lines 5, \
+ "parity8.fann_incremental_momentum.train.out" title "fann incr mom train" with lines 6, \
+ "parity8.lwnn.train.out" title "lwnn incremental train" with lines 8, \
+ "parity8.jneural.train.out" title "jneural incremental train" with lines 9
+set nologscale
+
+set logscale x
+#set output "parity13.ps"
+set title "parity13"
+plot "parity13.fann_rprop.train.out" title "fann rprop train" with lines -1, \
+ "parity13.fann_rprop_stepwise.train.out" title "fann rprop (stepwise) train" with lines 2, \
+ "parity13.fann_cascade_rprop_multi_activation.train.out" title "fann cascade train" with lines 1, \
+ "parity13.fann_quickprop.train.out" title "fann quickprop train" with lines 3, \
+ "parity13.fann_batch.train.out" title "fann batch train" with lines 4, \
+ "parity13.fann_incremental.train.out" title "fann incremental train" with lines 5, \
+ "parity13.fann_incremental_momentum.train.out" title "fann incr mom train" with lines 6, \
+ "parity13.lwnn.train.out" title "lwnn incremental train" with lines 8, \
+ "parity13.jneural.train.out" title "jneural incremental train" with lines 9
+set nologscale
+
+set logscale y
+#set output "pumadyn-32fm.ps"
+set title "pumadyn-32fm"
+plot "pumadyn-32fm.fann_rprop.test.out" title "fann rprop test" with lines -1, \
+ "pumadyn-32fm.fann_rprop_stepwise.test.out" title "fann rprop (stepwise) test" with lines 2, \
+ "pumadyn-32fm.fann_cascade_rprop_multi_activation.test.out" title "fann cascade test" with lines 1, \
+ "pumadyn-32fm.fann_quickprop.test.out" title "fann quickprop test" with lines 3, \
+ "pumadyn-32fm.fann_batch.test.out" title "fann batch test" with lines 4, \
+ "pumadyn-32fm.fann_incremental.test.out" title "fann incremental test" with lines 5, \
+ "pumadyn-32fm.fann_incremental_momentum.test.out" title "fann incr mom test" with lines 6, \
+ "pumadyn-32fm.lwnn.test.out" title "lwnn incremental test" with lines 8, \
+ "pumadyn-32fm.jneural.test.out" title "jneural incremental test" with lines 9, \
+ "pumadyn-32fm.fann_rprop.train.out" title "fann rprop train" with lines -1, \
+ "pumadyn-32fm.fann_rprop_stepwise.train.out" title "fann rprop (stepwise) train" with lines 2, \
+ "pumadyn-32fm.fann_cascade_rprop_multi_activation.train.out" title "fann cascade train" with lines 1, \
+ "pumadyn-32fm.fann_quickprop.train.out" title "fann quickprop train" with lines 3, \
+ "pumadyn-32fm.fann_batch.train.out" title "fann batch train" with lines 4, \
+ "pumadyn-32fm.fann_incremental.train.out" title "fann incremental train" with lines 5, \
+ "pumadyn-32fm.fann_incremental_momentum.train.out" title "fann incr mom train" with lines 6, \
+ "pumadyn-32fm.lwnn.train.out" title "lwnn incremental train" with lines 8, \
+ "pumadyn-32fm.jneural.train.out" title "jneural incremental train" with lines 9
+set nologscale
+
+set logscale 
+#set output "robot.ps"
+set title "robot"
+plot "robot.fann_rprop.test.out" title "fann rprop test" with lines -1, \
+ "robot.fann_rprop_stepwise.test.out" title "fann rprop (stepwise) test" with lines 2, \
+ "robot.fann_cascade_rprop_multi_activation.test.out" title "fann cascade test" with lines 1, \
+ "robot.fann_quickprop.test.out" title "fann quickprop test" with lines 3, \
+ "robot.fann_batch.test.out" title "fann batch test" with lines 4, \
+ "robot.fann_incremental.test.out" title "fann incremental test" with lines 5, \
+ "robot.fann_incremental_momentum.test.out" title "fann incr mom test" with lines 6, \
+ "robot.lwnn.test.out" title "lwnn incremental test" with lines 8, \
+ "robot.jneural.test.out" title "jneural incremental test" with lines 9, \
+ "robot.fann_rprop.train.out" title "fann rprop train" with lines -1, \
+ "robot.fann_rprop_stepwise.train.out" title "fann rprop (stepwise) train" with lines 2, \
+ "robot.fann_cascade_rprop_multi_activation.train.out" title "fann cascade train" with lines 1, \
+ "robot.fann_quickprop.train.out" title "fann quickprop train" with lines 3, \
+ "robot.fann_batch.train.out" title "fann batch train" with lines 4, \
+ "robot.fann_incremental.train.out" title "fann incremental train" with lines 5, \
+ "robot.fann_incremental_momentum.train.out" title "fann incr mom train" with lines 6, \
+ "robot.lwnn.train.out" title "lwnn incremental train" with lines 8, \
+ "robot.jneural.train.out" title "jneural incremental train" with lines 9
+
+set logscale x
+#set output "soybean.ps"
+set title "soybean"
+plot "soybean.fann_rprop.test.out" title "fann rprop test" with lines -1, \
+ "soybean.fann_rprop_stepwise.test.out" title "fann rprop (stepwise) test" with lines 2, \
+ "soybean.fann_cascade_rprop_multi_activation.test.out" title "fann cascade test" with lines 1, \
+ "soybean.fann_quickprop.test.out" title "fann quickprop test" with lines 3, \
+ "soybean.fann_batch.test.out" title "fann batch test" with lines 4, \
+ "soybean.fann_incremental.test.out" title "fann incremental test" with lines 5, \
+ "soybean.fann_incremental_momentum.test.out" title "fann incr mom test" with lines 6, \
+ "soybean.lwnn.test.out" title "lwnn incremental test" with lines 8, \
+ "soybean.jneural.test.out" title "jneural incremental test" with lines 9, \
+ "soybean.fann_rprop.train.out" title "fann rprop train" with lines -1, \
+ "soybean.fann_rprop_stepwise.train.out" title "fann rprop (stepwise) train" with lines 2, \
+ "soybean.fann_cascade_rprop_multi_activation.train.out" title "fann cascade train" with lines 1, \
+ "soybean.fann_quickprop.train.out" title "fann quickprop train" with lines 3, \
+ "soybean.fann_batch.train.out" title "fann batch train" with lines 4, \
+ "soybean.fann_incremental.train.out" title "fann incremental train" with lines 5, \
+ "soybean.fann_incremental_momentum.train.out" title "fann incr mom train" with lines 6, \
+ "soybean.lwnn.train.out" title "lwnn incremental train" with lines 8, \
+ "soybean.jneural.train.out" title "jneural incremental train" with lines 9
+set nologscale
+
+set logscale y
+#set output "thyroid.ps"
+set title "thyroid"
+plot "thyroid.fann_rprop.test.out" title "fann rprop test" with lines -1, \
+ "thyroid.fann_rprop_stepwise.test.out" title "fann rprop (stepwise) test" with lines 2, \
+ "thyroid.fann_cascade_rprop_multi_activation.test.out" title "fann cascade test" with lines 1, \
+ "thyroid.fann_quickprop.test.out" title "fann quickprop test" with lines 3, \
+ "thyroid.fann_batch.test.out" title "fann batch test" with lines 4, \
+ "thyroid.fann_incremental.test.out" title "fann incremental test" with lines 5, \
+ "thyroid.fann_incremental_momentum.test.out" title "fann incr mom test" with lines 6, \
+ "thyroid.lwnn.test.out" title "lwnn incremental test" with lines 8, \
+ "thyroid.jneural.test.out" title "jneural incremental test" with lines 9, \
+ "thyroid.fann_rprop.train.out" title "fann rprop train" with lines -1, \
+ "thyroid.fann_rprop_stepwise.train.out" title "fann rprop (stepwise) train" with lines 2, \
+ "thyroid.fann_cascade_rprop_multi_activation.train.out" title "fann cascade train" with lines 1, \
+ "thyroid.fann_quickprop.train.out" title "fann quickprop train" with lines 3, \
+ "thyroid.fann_batch.train.out" title "fann batch train" with lines 4, \
+ "thyroid.fann_incremental.train.out" title "fann incremental train" with lines 5, \
+ "thyroid.fann_incremental_momentum.train.out" title "fann incr mom train" with lines 6, \
+ "thyroid.lwnn.train.out" title "lwnn incremental train" with lines 8, \
+ "thyroid.jneural.train.out" title "jneural incremental train" with lines 9
+set nologscale
+
+set logscale x
+#set output "two-spiral.ps"
+set title "two-spiral"
+plot "two-spiral.fann_rprop.test.out" title "fann rprop test" with lines -1, \
+ "two-spiral.fann_rprop_stepwise.test.out" title "fann rprop (stepwise) test" with lines 2, \
+ "two-spiral.fann_cascade_rprop_multi_activation.test.out" title "fann cascade test" with lines 1, \
+ "two-spiral.fann_quickprop.test.out" title "fann quickprop test" with lines 3, \
+ "two-spiral.fann_batch.test.out" title "fann batch test" with lines 4, \
+ "two-spiral.fann_incremental.test.out" title "fann incremental test" with lines 5, \
+ "two-spiral.fann_incremental_momentum.test.out" title "fann incr mom test" with lines 6, \
+ "two-spiral.lwnn.test.out" title "lwnn incremental test" with lines 8, \
+ "two-spiral.jneural.test.out" title "jneural incremental test" with lines 9, \
+ "two-spiral.fann_rprop.train.out" title "fann rprop train" with lines -1, \
+ "two-spiral.fann_rprop_stepwise.train.out" title "fann rprop (stepwise) train" with lines 2, \
+ "two-spiral.fann_cascade_rprop_multi_activation.train.out" title "fann cascade train" with lines 1, \
+ "two-spiral.fann_quickprop.train.out" title "fann quickprop train" with lines 3, \
+ "two-spiral.fann_batch.train.out" title "fann batch train" with lines 4, \
+ "two-spiral.fann_incremental.train.out" title "fann incremental train" with lines 5, \
+ "two-spiral.fann_incremental_momentum.train.out" title "fann incr mom train" with lines 6, \
+ "two-spiral.lwnn.train.out" title "lwnn incremental train" with lines 8, \
+ "two-spiral.jneural.train.out" title "jneural incremental train" with lines 9
+set nologscale
+
+set output
+set terminal x11
+

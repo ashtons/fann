@@ -1,0 +1,13 @@
+*.net 
+*_fixed_test_*
+*_fixed_train_*
+*.out
+parity
+performance
+*_fixed
+quality
+shuffle
+two-spirals
+allplots.ps
+allplots_old.ps
+*.ps

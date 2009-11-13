@@ -1,0 +1,48 @@
+INSTRUCTIONS
+
+
+PREREQUISITES
+^^^^^^^^^^^^^
+Make sure you can make and install the fann library first. 
+You are required to have swig and python development files 
+installed. After you compiled the fann library...
+
+
+BUILDING AND INSTALLING USING MAKE (preferred)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run the following command:
+
+$ make
+
+then as root run
+
+# make install
+
+BUILDING AND INSTALLING USING DISTUTILS (second alternative)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run the following command as root
+
+# python setyp.py install
+
+
+
+######### ** ** ** ** ** ** ** ** ** ** ** ** ** ** ##########
+##### The wrapper should be installed uing above methods #####
+##### The following instructions are for advanced users  #####
+
+
+BUILD USING LINUX MAKEFILES
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+run the following command 
+
+$ make linux
+
+
+
+BUILD USING MSVC MAKEFILES
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+run the following command 
+
+$ make msvc
+
+

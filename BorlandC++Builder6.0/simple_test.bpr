@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- C++Builder XML Project -->
+<PROJECT>
+  <MACROS>
+    <VERSION value="BCB.06.00"/>
+    <PROJECT value="..\examples\simple_test.exe"/>
+    <OBJFILES value="..\examples\simple_test.obj"/>
+    <RESFILES value="simple_test.res"/>
+    <DEFFILE value=""/>
+    <RESDEPEN value="$(RESFILES)"/>
+    <LIBFILES value="libfann.lib"/>
+    <LIBRARIES value=""/>
+    <SPARELIBS value=""/>
+    <PACKAGES value=""/>
+    <PATHCPP value=".;..\examples"/>
+    <PATHPAS value=".;"/>
+    <PATHRC value=".;"/>
+    <PATHASM value=".;"/>
+    <DEBUGLIBPATH value="$(BCB)\lib\debug"/>
+    <RELEASELIBPATH value="$(BCB)\lib\release"/>
+    <LINKER value="ilink32"/>
+    <USERDEFINES value="_DEBUG"/>
+    <SYSDEFINES value="NO_STRICT;_NO_VCL;_RTLDLL"/>
+    <MAINSOURCE value="simple_test.bpf"/>
+    <INCLUDEPATH value="..\examples;$(BCB)\include;$(BCB)\include\vcl;..\src\include;&quot;C:\Program Files\madCollection\madBasic\BCB6&quot;;&quot;C:\Program Files\madCollection\madDisAsm\BCB6&quot;;&quot;C:\Program Files\madCollection\madExcept\BCB6&quot;"/>
+    <LIBPATH value="..\examples;$(BCB)\lib\obj;$(BCB)\lib;&quot;C:\Program Files\madCollection\madBasic\BCB6&quot;;&quot;C:\Program Files\madCollection\madDisAsm\BCB6&quot;;&quot;C:\Program Files\madCollection\madExcept\BCB6&quot;"/>
+    <WARNINGS value="-w-par"/>
+    <OTHERFILES value=""/>
+  </MACROS>
+  <OPTIONS>
+    <CFLAG1 value="-Od -Vx -Ve -X- -r- -a8 -b- -k -y -v -vi- -tWC -tWM- -c"/>
+    <PFLAGS value="-$YD -$W -$O- -$A8 -v -JPHNE -M"/>
+    <RFLAGS value=""/>
+    <AFLAGS value="/mx /w2 /zd"/>
+    <LFLAGS value="-D&quot;&quot; -ap -Tpe -x -Gn -v"/>
+    <OTHERFILES value=""/>
+  </OPTIONS>
+  <LINKER>
+    <ALLOBJ value="c0x32.obj $(OBJFILES)"/>
+    <ALLRES value="$(RESFILES)"/>
+    <ALLLIB value="$(LIBFILES) $(LIBRARIES) import32.lib cw32i.lib"/>
+    <OTHERFILES value=""/>
+  </LINKER>
+  <FILELIST>
+      <FILE FILENAME="simple_test.res" FORMNAME="" UNITNAME="simple_test.res" CONTAINERID="ResTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="simple_test.bpf" FORMNAME="" UNITNAME="simple_test" CONTAINERID="BPF" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="..\examples\simple_test.c" FORMNAME="" UNITNAME="simple_test" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="libfann.lib" FORMNAME="" UNITNAME="libfann.lib" CONTAINERID="LibTool" DESIGNCLASS="" LOCALCOMMAND=""/>
+  </FILELIST>
+  <BUILDTOOLS>
+  </BUILDTOOLS>
+
+  <IDEOPTIONS>
+[Version Info]
+IncludeVerInfo=0
+AutoIncBuild=0
+MajorVer=1
+MinorVer=0
+Release=0
+Build=0
+Debug=0
+PreRelease=0
+Special=0
+Private=0
+DLL=0
+Locale=1030
+CodePage=1252
+
+[Version Info Keys]
+CompanyName=
+FileDescription=
+FileVersion=1.0.0.0
+InternalName=
+LegalCopyright=
+LegalTrademarks=
+OriginalFilename=
+ProductName=
+ProductVersion=1.0.0.0
+Comments=
+
+[Excluded Packages]
+c:\program files\borland\cbuilder6\Bin\dclstd60.bpl=Borland Standard Components
+c:\program files\borland\cbuilder6\Bin\dcl31w60.bpl=Delphi 1.0 Compatibility Components
+c:\program files\borland\cbuilder6\Bin\dclbcbsmp60.bpl=Borland Sample Controls Design Time Package
+c:\program files\borland\cbuilder6\Bin\dclado60.bpl=Borland ADO DB Components
+C:\Program Files\Borland\CBuilder6\Bin\dcldb60.bpl=Borland Database Components
+C:\WINDOWS\System32\ibevnt60.bpl=Borland Interbase Event Alerter Component
+c:\program files\borland\cbuilder6\Bin\dclbde60.bpl=Borland BDE DB Components
+C:\Program Files\Borland\CBuilder6\Bin\dbx60.bpl=Borland SQL Explorer UI Package
+c:\program files\borland\cbuilder6\Bin\dclcds60.bpl=Borland Base Cached ClientDataset Component
+C:\Program Files\Borland\CBuilder6\Bin\dclmid60.bpl=Borland MyBase DataAccess Components
+c:\program files\borland\cbuilder6\Bin\dclbdecds60.bpl=Borland Local BDE ClientDataset Components
+c:\program files\borland\cbuilder6\Bin\dcltee60.bpl=TeeChart Components
+c:\program files\borland\cbuilder6\Bin\applet60.bpl=Borland Control Panel Applet Package
+c:\program files\borland\cbuilder6\Bin\dcltqr60.bpl=TeeChart for QuickReport Components
+c:\program files\borland\cbuilder6\Bin\dclsmpedit60.bpl=Borland Editor Script Enhancements
+c:\program files\borland\cbuilder6\Bin\dclib60.bpl=InterBase Data Access Components
+c:\program files\borland\cbuilder6\Bin\dclclxdb60.bpl=Borland CLX Database Components
+C:\Program Files\Borland\CBuilder6\Bin\dclclxstd60.bpl=Borland CLX Standard Components
+c:\program files\borland\cbuilder6\Bin\dclemacsedit60.bpl=Borland Editor Emacs Enhancements
+c:\program files\borland\cbuilder6\Bin\dclact60.bpl=Borland ActionBar Components
+c:\program files\borland\cbuilder6\Bin\idefilters60.bpl=IDE Filter for CPP32
+c:\program files\borland\cbuilder6\Bin\dclmlwiz60.bpl=Borland Markup Language Wizards
+c:\program files\borland\cbuilder6\Bin\dclnet60.bpl=Borland Internet Components
+c:\program files\borland\cbuilder6\Bin\DBWEBXPRT.BPL=Borland Web Wizard Package
+c:\program files\borland\cbuilder6\Bin\DCLNMF60.bpl=NetMasters Fastnet Tools
+c:\program files\borland\cbuilder6\Bin\bcbie60.bpl=Borland C++Builder Internet Explorer 5 Components Package
+c:\program files\borland\cbuilder6\Bin\dclsoap60.bpl=Borland SOAP Components
+c:\program files\borland\cbuilder6\Bin\dclocx60.bpl=Borland Sample Imported ActiveX Controls
+c:\program files\borland\cbuilder6\Bin\dcldbx60.bpl=Borland dbExpress Components
+c:\program files\borland\cbuilder6\Bin\dcldbxcds60.bpl=Borland Local DBX ClientDataset Components
+c:\program files\borland\cbuilder6\Bin\dclindy60.bpl=Internet Direct (Indy) for D6 Property and Component Editors
+c:\program files\borland\cbuilder6\Bin\bcb2kaxserver60.bpl=Borland C++Builder COM Server Components Sample Package
+C:\Program Files\Borland\CBuilder6\Direct Oracle Access 346\Package\doa34c6.bpl=Direct Oracle Access 3.4.6.1
+C:\Program Files\Borland\CBuilder6\bin\ipworks5.bpl=/n software - IPWorks! V5 - www.nsoftware.com
+c:\program files\borland\cbuilder6\Projects\Bpl\TMSC6.bpl=TMS Component Pack
+c:\program files\borland\cbuilder6\Projects\Bpl\TrayIcon.bpl=TrayIcon
+c:\program files\borland\cbuilder6\Projects\Bpl\SystemInfoB6.bpl=SystemInfoB6
+c:\program files\borland\cbuilder6\Projects\Bpl\DDEVL.bpl=DDE Components
+c:\program files\borland\cbuilder6\Projects\Bpl\XML.bpl=XML
+c:\program files\borland\cbuilder6\Projects\Bpl\BIComponentsB6.bpl=BIComponentsB6
+C:\vss\BCBComponents\eDocEngine\eDocEngine\Lib\C6\DCLgtDocEngC60Pro.bpl=Gnostice eDocEngine
+c:\program files\borland\cbuilder6\Projects\Bpl\mxOutlookBarPro_C6.bpl=Max's Outlook Style Sidebar Component
+C:\Program Files\madCollection\madBasic\BCB6\madBasic_.bpl=madBasic 1.1k  -  www.madshi.net
+C:\Program Files\madCollection\madBasic\BCB6\madHelp_.bpl=madHelp 1.1a  -  www.madshi.net
+C:\Program Files\madCollection\madDisAsm\BCB6\madDisAsm_.bpl=madDisAsm 2.1b  -  www.madshi.net
+C:\Program Files\madCollection\madExcept\BCB6\madExcept_.bpl=madExcept 2.7g  -  www.madshi.net
+C:\Program Files\madCollection\madExcept\BCB6\madExceptVcl_.bpl=madExceptVcl 2.0c  -  www.madshi.net
+C:\Program Files\madCollection\madExcept\BCB6\madExceptIde_.bpl=madExceptIde 1.0d  -  www.madshi.net
+C:\Program Files\madCollection\madExcept\BCB6\madExceptWizard_.bpl=madExceptWizard 2.7e  -  www.madshi.net
+c:\program files\borland\cbuilder6\Bin\dclite60.bpl=Borland Integrated Translation Environment
+c:\program files\borland\cbuilder6\Bin\dclqrt60.bpl=QuickReport Components
+C:\vss\BCBComponents\eDocEngine\eDocEngine\Lib\C6\DCLgtQRExpC60.bpl=Gnostice QRExportInterface
+
+[HistoryLists\hlIncludePath]
+Count=2
+Item0=..\examples;$(BCB)\include;$(BCB)\include\vcl;..\src\include
+Item1=..\examples;$(BCB)\include;$(BCB)\include\vcl
+
+[HistoryLists\hlLibraryPath]
+Count=1
+Item0=..\examples;$(BCB)\lib\obj;$(BCB)\lib
+
+[HistoryLists\hlDebugSourcePath]
+Count=1
+Item0=$(BCB)\source\vcl
+
+[HistoryLists\hlConditionals]
+Count=1
+Item0=_DEBUG
+
+[HistoryLists\hlFinalOutputDir]
+Count=1
+Item0=..\examples
+
+[Debugging]
+DebugSourceDirs=$(BCB)\source\vcl
+
+[Parameters]
+RunParams=
+Launcher=
+UseLauncher=0
+DebugCWD=
+HostApplication=
+RemoteHost=
+RemotePath=
+RemoteLauncher=
+RemoteCWD=
+RemoteDebug=0
+
+[Compiler]
+ShowInfoMsgs=0
+LinkDebugVcl=0
+LinkCGLIB=0
+
+[Language]
+ActiveLang=
+ProjectLang=
+RootDir=
+  </IDEOPTIONS>
+</PROJECT>

@@ -1,0 +1,40 @@
+Fast Artificial Neural Network Library (fann)
+
+Fast Artificial Neural Network Library implements multilayer
+artificial neural networks in C with support for both fully connected
+and sparsely connected networks. Cross-platform execution in both
+fixed and floating point are supported. It includes a framework for
+easy handling of training data sets. It is easy to use, versatile,
+well documented, and fast. Bindings to other programming languages 
+and a GUI are also available.
+
+A reference manual accompanies the library with examples and
+recommendations on how to use the library.
+
+The reference manual is available at: http://leenissen.dk/fann/html/index.html
+
+A university report about the implementation of version 1.0 is also
+available, please see: 
+http://prdownloads.sourceforge.net/fann/fann_doc_complete_1.0.pdf?download
+
+An article about how to use the library is available at: doc/fann_en.pdf
+
+For installation do the following:
+type command: ./configure
+type command: make
+Now you would like to be root in order to install
+type command: su
+type command: make install
+type command: exit
+Now you are not root anymore, and you can test the library.
+type command: cd examples
+type command: make runtest
+
+For further installation instructions see: INSTALL
+
+For example programs please see:
+examples/simple_train.c
+examples/simple_test.c
+
+For more information and downloads, please go to:
+http://fann.sourceforge.net/

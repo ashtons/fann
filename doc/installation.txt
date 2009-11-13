@@ -1,0 +1,117 @@
+Section: Installing FANN
+
+Copies of FANN can be obtained from our SourceForge page, located at http://fann.sf.net
+
+You can currently get FANN as source code (fann-*.tar.bz2), Debian packages (fann-*.deb), or RPM's (fann-*.rpm).
+
+FANN is available under the terms of the GNU Lesser General Public License.
+
+FANN bindings to several other programming languages is also available from: http://fann.sf.net
+
+Group: C Library Installation
+
+Topic: Windows Installation
+
+FANN >= 1.1.0 includes a Microsoft Visual C++ 6.0 project file, which can be used to compile FANN for Windows.  To build the library and examples with MSVC++ 6.0.
+
+First, navigate to the MicrosoftVisualC++6.0 directory in the FANN distribution and open the all.dsw workspace.  In the Visual Studio menu bar, choose "Build" -> "Batch build...", select the project configurations that you would like to build (by default, all are selected), and press "rebuild all"
+
+When the build process is complete, the library and examples can be found in the MicrosoftVisualC++6.0\Debug directorie and the examples are automatically copied into the examples where they are supposed to be run. If all of the examples are not copied to the correct location, please compile them separately.
+
+Topic: RPM Installation
+
+RPMs are a simple way to manage packages, and is used on many common Linux distributions such as Red Hat, Mandrake, and SuSE.
+
+Two separate packages exist; fann, the runtime library, and fann-devel, the development library and header files.
+
+After downloading FANN, simply run (as root) the following command: rpm -ivh $PATH_TO_RPM
+
+Topic: DEB Installation
+
+DEBs are packages for the Debian Linux distribution. Two separate packages exists libfann1 and libfann1-dev, where libfann1 is the runtime library and libfann1-dev is the development library.
+
+Fann is included in the stable distribution of Debian, so Debian users can simply run (as root) the following command: apt-get install libfann1 libfann1-dev.
+
+After downloading the FANN DEB package, simply run (as root) the following command: dpkg -i $PATH_TO_DEB
+
+Topic: Compiling from source
+
+Compiling FANN from source code entails the standard GNU autotools technique. First, configure the package as you want it by typing (in the FANN directory), ./configure If you need help choosing the options you would like to use, try ./configure --help
+
+Next, you have to actually compile the library. To do this, simply type make
+
+Finally, to install the library, type make install. Odds are you will have to be root to install, so you may need to su to root before installing. Please remember to log out of the root account immediately after make install finishes.
+
+Some people have experienced problems with compiling the library with some compilers, especially windows compilers which can not use GNU autotools. Please look through the help forum and the mailing list archives for info on how these problems was solved. If you do not find any information here, feel free to ask questions.
+
+Group: Python Bindings
+
+These functions allow you to interact with the FANN library from Python.
+
+This extension requires the FANN library, version 1.1.0 or later.
+
+This python binding is provided by Vincenzo Di Massa (hawk.it@tiscalinet.it) and updated by Gil Megidish (gil@megidish.net)
+
+Topic: Python Install
+
+Make sure to make and install the fann library first. Make sure that you have swig and python development files installed. Perhaps change the include directory of python. Then run 'make' to compile in the python directory.
+
+Copy the generated _fann.so and fann.py files to python modules or into working directory.
+
+After the install, just import fann and all the C functions will be available to your python code.
+
+Group: PHP Extension
+
+These functions allow you to interact with the FANN library from PHP.
+
+This extension requires the FANN library, version 1.1.0 or later.
+
+This extension supports the same activation functions as the library, a list of which can be found in the reference manual for the C library.
+
+Topic: Installation Using PEAR
+
+The easiest way to install FANN-PHP is to use PEAR- if you have a fairly recent version of PHP installed, simply run pear install fann. Note that if there are no stable releases of FANN-PHP, you may have to specify the URI for the package, which can be obtained from http://pecl.php.net/fann.
+
+If you cannot install FANN-PHP using PEAR, you can try following the (obsolete) instructions at http://www.cs.utexas.edu/users/UTCS/online-docs/php/pear/faq.install-pecl.html.
+
+If you use one of these methods, you'll need to either dl('fann.so') or add it to your php.ini
+
+If you use either of the above methods, you will probably need to be root.
+
+Topic: Compiling into PHP
+
+Please only use this method if using the methods outlined in Using PEAR have failed.
+
+If you wish to compile FANN-PHP into PHP itself, you can. First, uncompress the package into the ext subdirectory of your copy of the PHP source code, and rename the directory to ext/fann (from fann-x.x.x).
+
+Next, you must rebuild the configure script- to do so, run ./buildconf from the PHP source directory.
+
+From here on, the procedure is similar to when you built PHP originally- run ./configure with your desired options, plus --with-fann.
+
+Finally, run make and make install. Note that you will probably need to be root for make install to work.
+
+This method may require flex and bison to work- more information can be obtained at http://www.php.net/anoncvs.php 
+
+Group: Delphi Bindings
+
+These functions allow you to interact with the FANN library from Delphi.
+
+This extension requires the FANN library, version 1.2.0 or later.
+
+This extension can be downloaded from the FANN library download section.
+
+This Delphi binding is provided by Maurício Pereira Maia (mauricio@uaisol.com.br)
+
+Topic: Delphi Install
+
+Make sure to make and install the fann library first. Put the file fannfloat.dll in your PATH. (If you want to use the fixed version you should define FIXEDFANN on fann.pas). Include fann.pas in your project and in your unit uses clause, and have fun! See the XorConsole sample for more details.
+
+Topic: TFannNetwork
+
+TFannNetwork is a Delphi component that encapsulates the Fann Library. You do not have to install TFannNetwork to use Fann on Delphi, but it will make the library more Delphi friendly. Currently it has only a small subset of all the library functions, but I hope that will change in the near future.
+
+To install TFannNetwork you should follow all the previous steps and copy the FannNetwork.pas and Fann.dcr to your Delphi Library PATH. Choose Component/Install Component. In the Unit file name field, click on Browse and point to the fannnetwork.pas file. By default Delphi will install in the Borland User Components package, it might be changed using Package file name field or Into new package page. Click on Ok. A confirmation dialog will be shown asking if you want to build the package. Click on Yes. You have just installed TFannNetwork, now close the package window (Don't forget to put Yes when it ask if you want to save the package). See the FannNetwork.pas file or the Xor Sample.
+
+Topic: Known Problems
+
+If you are getting in trouble to use your own compiled FANN DLL with Delphi that might be because of the C++ naming mangle that changes between C++ compilers. You will need to make a TDUMP on your dll and changes all the name directives on fann.pas to the correct function names on your dll. 

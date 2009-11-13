@@ -1,0 +1,156 @@
+Section: Fixed Point Usage
+
+It is possible to run the ANN with fixed point numbers (internally represented as integers). This option is only intended for use on computers with no floating point processor, for example, the iPAQ or other embedded devices.
+
+Topic: Training a Fixed Point ANN
+
+The ANN cannot be trained in fixed point, which is why the training part is basically the same as for floating point numbers. The only difference is that you should save the ANN as fixed point. This is done by the <fann_save_to_fixed> function. This function saves a fixed point version of the ANN, but it also does some analysis, in order to find out where the decimal point should be. The result of this analysis is returned from the function.
+
+The decimal point returned from the function is an indicator of, how many bits is used for the fractional part of the fixed point numbers. If this number is negative, there will most likely be integer overflow when running the library with fixed point numbers and this should be avoided. Furthermore, if the decimal point is too low (e.g. lower than 5), it is probably not a good idea to use the fixed point version.
+
+Please note, that the inputs to networks that should be used in fixed point should be between -1 and 1.
+
+An example of a program written to support training in both fixed point and floating point numbers:
+
+(code)
+#include <time.h>
+#include <sys/time.h>
+#include <stdio.h>
+
+#include "fann.h"
+
+int main()
+{
+	fann_type *calc_out;
+	unsigned int i;
+	int ret = 0;
+
+	struct fann *ann;
+	struct fann_train_data *data;
+
+	printf("Creating network.\n");
+
+#ifdef FIXEDFANN
+	ann = fann_create_from_file("xor_fixed.net");
+#else
+	ann = fann_create_from_file("xor_float.net");
+#endif
+
+	if(!ann)
+	{
+		printf("Error creating ann --- ABORTING.\n");
+		return 0;
+	}
+
+	printf("Testing network.\n");
+
+#ifdef FIXEDFANN
+	data = fann_read_train_from_file("xor_fixed.data");
+#else
+	data = fann_read_train_from_file("xor.data");
+#endif
+
+	for(i = 0; i < data->num_data; i++)
+	{
+		fann_reset_MSE(ann);
+		calc_out = fann_test(ann, data->input[i], data->output[i]);
+#ifdef FIXEDFANN
+		printf("XOR test (%d, %d) -> %d, should be %d, difference=%f\n",
+			   data->input[i][0], data->input[i][1], calc_out[0], data->output[i][0],
+			   (float) fann_abs(calc_out[0] - data->output[i][0]) / fann_get_multiplier(ann));
+
+		if((float) fann_abs(*calc_out - data->output[i][0]) / fann_get_multiplier(ann) > 0.1)
+		{
+			printf("Test failed\n");
+			ret = -1;
+		}
+#else
+		printf("XOR test (%f, %f) -> %f, should be %f, difference=%f\n",
+			   data->input[i][0], data->input[i][1], *calc_out, data->output[i][0],
+			   (float) fann_abs(*calc_out - data->output[i][0]));
+#endif
+	}
+
+	printf("Cleaning up.\n");
+	fann_destroy_train(data);
+	fann_destroy(ann);
+
+	return ret;
+}
+(end)
+	
+
+Topic: Running a Fixed Point ANN
+
+Running a fixed point ANN is done much like running an ordinary ANN. The difference is that the inputs and outputs should be in fixed point representation. Furthermore the inputs should be restricted to be between -multiplier and multiplier to avoid integer overflow, where the multiplier is the value returned from <fann_get_multiplier>. This multiplier is the value that a floating point number should be multiplied with, in order to be a fixed point number, likewise the output of the ANN should be divided by this multiplier in order to be between zero and one.
+
+To help using fixed point numbers, another function is provided. <fann_get_decimal_point> which returns the decimal point. The decimal point is the position dividing the integer and fractional part of the fixed point number and is useful for doing operations on the fixed point inputs and outputs.
+
+An example of a program written to support both fixed point and floating point numbers:
+
+(code)
+#include <time.h>
+#include <sys/time.h>
+#include <stdio.h>
+
+#include "fann.h"
+
+int main()
+{
+	fann_type *calc_out;
+	unsigned int i;
+	int ret = 0;
+
+	struct fann *ann;
+	struct fann_train_data *data;
+
+	printf("Creating network.\n");
+
+#ifdef FIXEDFANN
+	ann = fann_create_from_file("xor_fixed.net");
+#else
+	ann = fann_create_from_file("xor_float.net");
+#endif
+	
+	if(!ann){
+		printf("Error creating ann --- ABORTING.\n");
+		return 0;
+	}
+
+	printf("Testing network.\n");
+
+#ifdef FIXEDFANN
+	data = fann_read_train_from_file("xor_fixed.data");
+#else
+	data = fann_read_train_from_file("xor.data");
+#endif
+
+	for(i = 0; i < data->num_data; i++){
+		fann_reset_MSE(ann);
+		calc_out = fann_test(ann, data->input[i], data->output[i]);
+#ifdef FIXEDFANN
+		printf("XOR test (%d, %d) -> %d, should be %d, difference=%f\n",
+		data->input[i][0], data->input[i][1], *calc_out, data->output[i][0], (float)fann_abs(*calc_out - data->output[i][0])/fann_get_multiplier(ann));
+
+		if((float)fann_abs(*calc_out - data->output[i][0])/fann_get_multiplier(ann) > 0.1){
+			printf("Test failed\n");
+			ret = -1;
+		}
+#else
+		printf("XOR test (%f, %f) -> %f, should be %f, difference=%f\n",
+		data->input[i][0], data->input[i][1], *calc_out, data->output[i][0], (float)fann_abs(*calc_out - data->output[i][0]));
+#endif
+	}
+
+	printf("Cleaning up.\n");
+	fann_destroy_train(data);
+	fann_destroy(ann);
+
+	return ret;
+}
+(end)
+	
+
+Topic: Precision of a Fixed Point ANN
+
+The fixed point ANN is not as precise as a floating point ANN, furthermore it approximates the sigmoid function by a stepwise linear function. Therefore, it is always a good idea to test the fixed point ANN after loading it from a file. This can be done by calculating the mean square error as described earlier. There is, however, one problem with this approach: The training data stored in the file is in floating point format. Therefore, it is possible to save this data in a fixed point format from within the floating point program. This is done by the function <fann_save_train_to_fixed>. Please note that this function takes the decimal point as an argument, meaning that the decimal point should be calculated first by using the <fann_save_to_fixed> function.

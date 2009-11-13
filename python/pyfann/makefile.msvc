@@ -1,0 +1,23 @@
+# This makefile was written to compile a distribution of pyfann for
+# Microsoft Visual C++. 
+
+TARGETS = _libfann.pyd
+
+PYTHON=python2.3
+
+PYDIR=C:/Python23
+OBJS=libfann_wrap.obj fann_helper.obj
+
+all: $(TARGETS)
+
+_libfann.pyd: $(OBJS)
+	link /LIBPATH:$(PYDIR)/libs /DLL /OUT:$@ $(OBJS) ../../src/fann*.obj python23.lib
+
+.c.obj:
+	cl -c $< -I $(PYDIR)/include -I ../../src/include
+
+libfann_wrap.c: libfann.i
+	swig -python libfann.i
+
+clean:
+	del -f $(TARGETS) *_wrap.* fann_helper.obj fann.pyc libfann.py _libfann.*

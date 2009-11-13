@@ -1,0 +1,54 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "windll", "windll.vcproj", "{CB0A9F5C-36EC-4824-948E-982C8F1B2125}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug Double = Debug Double
+		Debug Double Multithread = Debug Double Multithread
+		Debug Fixed = Debug Fixed
+		Debug Fixed Multithread = Debug Fixed Multithread
+		Debug Float = Debug Float
+		Debug Float Multithread = Debug Float Multithread
+		Release Double = Release Double
+		Release Double Multithread = Release Double Multithread
+		Release Fixed = Release Fixed
+		Release Fixed Multithread = Release Fixed Multithread
+		Release Float = Release Float
+		Release Float Multithread = Release Float Multithread
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Debug Double.ActiveCfg = Debug Double|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Debug Double.Build.0 = Debug Double|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Debug Double Multithread.ActiveCfg = Debug Double Multithread|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Debug Double Multithread.Build.0 = Debug Double Multithread|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Debug Fixed.ActiveCfg = Debug Fixed|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Debug Fixed.Build.0 = Debug Fixed|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Debug Fixed Multithread.ActiveCfg = Debug Fixed Multithread|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Debug Fixed Multithread.Build.0 = Debug Fixed Multithread|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Debug Float.ActiveCfg = Debug Float|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Debug Float.Build.0 = Debug Float|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Debug Float Multithread.ActiveCfg = Debug Float Multithread|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Debug Float Multithread.Build.0 = Debug Float Multithread|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Release Double.ActiveCfg = Release Double|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Release Double.Build.0 = Release Double|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Release Double Multithread.ActiveCfg = Release Double Multithread|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Release Double Multithread.Build.0 = Release Double Multithread|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Release Fixed.ActiveCfg = Release Fixed|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Release Fixed.Build.0 = Release Fixed|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Release Fixed Multithread.ActiveCfg = Release Fixed Multithread|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Release Fixed Multithread.Build.0 = Release Fixed Multithread|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Release Float.ActiveCfg = Release Float|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Release Float.Build.0 = Release Float|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Release Float Multithread.ActiveCfg = Release Float Multithread|Win32
+		{CB0A9F5C-36EC-4824-948E-982C8F1B2125}.Release Float Multithread.Build.0 = Release Float Multithread|Win32
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+		README.txt = README.txt
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

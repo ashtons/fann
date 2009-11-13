@@ -1,0 +1,66 @@
+Source: libfann2
+Section: libdevel
+Priority: optional
+Maintainer: Steffen Nissen <sn@leenissen.dk>
+Standards-Version: 3.6.0
+Build-Depends: docbook-utils, debhelper (>= 4.1.67), python-dev, swig
+
+Package: libfann2-dev
+Section: libdevel
+Architecture: any
+Depends: libfann2 (= ${Source-Version})
+Conflicts: libfann1-dev
+Description: Fast Artificial Neural Network Library 
+ is a free open source neural network library, which implements multilayer 
+ artificial neural networks in C with support for both fully connected and
+ sparsely connected networks. Cross-platform execution in both fixed
+ and floating point are supported. It includes a framework for easy
+ handling of training data sets. It is easy to use, versatile, well
+ documented, and fast. PHP, C++, .NET, Python, Delphi, Octave, Ruby,
+ Pure Data and Mathematica bindings are available. A reference manual
+ accompanies the library with examples and recommendations on how to
+ use the library. A graphical user interface is also available for the
+ library.
+ .
+ This package contains the header files and static libraries which is
+ needed for developing the libfann applications.
+
+Package: libfann2
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}
+Suggests: libfann2-dev (= ${Source-Version})
+Description: Fast Artificial Neural Network Library 
+ is a free open source neural network library, which implements multilayer 
+ artificial neural networks in C with support for both fully connected and
+ sparsely connected networks. Cross-platform execution in both fixed
+ and floating point are supported. It includes a framework for easy
+ handling of training data sets. It is easy to use, versatile, well
+ documented, and fast. PHP, C++, .NET, Python, Delphi, Octave, Ruby,
+ Pure Data and Mathematica bindings are available. A reference manual
+ accompanies the library with examples and recommendations on how to
+ use the library. A graphical user interface is also available for the
+ library.
+ . 
+ This package contains the shared libraries.
+
+Package: libfann2-py
+Section: python
+Architecture: any
+Depends: ${shlibs:Depends}, libfann2, ${python:Depends}
+Suggests: libfann2-dev (= ${Source-Version})
+Description: Python FANN Bindings (pyfann)
+ Fast Artificial Neural Network Library is a free open
+ source neural network library, which implements multilayer artificial
+ neural networks in C with support for both fully connected and
+ sparsely connected networks. Cross-platform execution in both fixed
+ and floating point are supported. It includes a framework for easy
+ handling of training data sets. It is easy to use, versatile, well
+ documented, and fast. PHP, C++, .NET, Python, Delphi, Octave, Ruby,
+ Pure Data and Mathematica bindings are available. A reference manual
+ accompanies the library with examples and recommendations on how to
+ use the library. A graphical user interface is also available for the
+ library.
+ . 
+ This package contains the python wrapper.
+

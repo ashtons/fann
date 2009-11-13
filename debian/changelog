@@ -1,0 +1,44 @@
+libfann2 (2.0.0-1) unstable; urgency=low
+
+  * Debian package for version 2.0.0
+
+ -- Steffen Nissen <sn@leenissen.dk>  Tue, 13 Dec 2005 23:25:14 +0100
+
+libfann1 (1.2.0-2) unstable; urgency=low
+
+  * Added python bindings package 
+
+ -- Vincenzo Di Massa <hawk@hawk.linuxpratico.net>  Thu, 21 Apr 2005 12:32:35 +0200
+
+libfann1 (1.2.0-1) unstable; urgency=low
+
+  * Debian package for version 1.2.0
+
+ -- Steffen Nissen <lukesky@diku.dk>  Sat,  9 Oct 2004 13:46:42 +0200
+
+libfann1 (1.1.0.1-1) unstable; urgency=low
+
+  * rebuild with a clean tar.gz. All issues with debian/ dir in cvs
+    that caused a changing orig.gz should be sorted out now.
+
+ -- Steffen Nissen <lukesky@diku.dk>  Mon, 17 May 2004 09:44:38 +0200
+
+libfann1 (1.1.0-3) unstable; urgency=low
+
+  * fixed bug with two build-depend lines
+
+ -- Steffen Nissen <lukesky@diku.dk>  Mon, 10 May 2004 16:43:24 +0200
+
+libfann1 (1.1.0-2) unstable; urgency=low
+
+  * added docbook-utils to build-depends
+
+ -- Steffen Nissen <lukesky@diku.dk>  Thu,  6 May 2004 16:22:42 +0200
+
+libfann1 (1.1.0-1) unstable; urgency=low
+
+  * My first try at a debian package, please report any errors.
+  * Initial Release.
+
+ -- Steffen Nissen <lukesky@diku.dk>  Wed, 31 Mar 2004 09:54:39 +0200
+

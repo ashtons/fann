@@ -1,0 +1,68 @@
+For a look at current TODO items look at: http://sourceforge.net/tracker/?group_id=93562&atid=604725
+
+If you want to contribute to the library, please contact me at lukesky@diku.dk
+
+Things TODO when releasing a new version (mostly for fann developers)
+
+* All Makefile.am and configure.in should be updated to include relevant files and to reflect the new version number
+
+* No compile warnings
+	cd examples
+	make compiletest
+
+* Everything should compile and install ok
+	./configure && make
+	sudo make install
+	cd examples
+	make runtest
+
+* All of the examples should work fine
+	cd examples
+	make simple_train && ./simple_train
+	make simple_test && ./simple_test
+	make steepness_train && ./steepness_train
+	make mushroom && ./mushroom
+	make robot && ./robot
+	make cascade_train && ./cascade_train
+	make momentums && ./momentums
+
+* No memory leaks must exist
+	cd examples
+	make rundebug
+
+* Documentation should be updated
+
+* Benchmarks should be updated
+
+* Changelog should be updated and timestamp should be set
+
+* All relevant files should be in CVS (all other removed)
+
+* TGZ/BZ/ZIP packages should be created
+
+* Debian packages should be created (from tgz package)
+	#Example of make command
+	rm -rf fann-2.0.0.* test && mkdir test  && ./configure && make distclean && ./configure && make dist && cp fann-2.0.0.*gz test && cd test && tar xvzf *gz && cd fann-2.0.0 
+	su
+	pbuilder update --distribution unstable
+	pdebuild
+	exit
+	cd .. && cp /var/cache/pbuilder/result/*deb . && lintian *deb
+
+* Windows DLL's should be created
+
+* ZIP package with win dll should be created
+
+* RPM packages should be created
+
+* Commit for CVS
+
+* CVS tag for release
+
+* Upload to sf
+
+* Update sf site documentation etc.
+
+* Update fm site
+
+* Send out release info

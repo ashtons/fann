@@ -1,0 +1,66 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libfann", "libfann.vcproj", "{1DA22033-9C6F-4139-A31C-3C6908A6551D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "simple_test", "simple_test.vcproj", "{D70E0F4E-0737-4E56-8513-832ACE281B71}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1DA22033-9C6F-4139-A31C-3C6908A6551D} = {1DA22033-9C6F-4139-A31C-3C6908A6551D}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "simple_train", "simple_train.vcproj", "{F9A9D49B-8096-4D06-8D36-B1B80F75CB74}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1DA22033-9C6F-4139-A31C-3C6908A6551D} = {1DA22033-9C6F-4139-A31C-3C6908A6551D}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "steepness_train", "steepness_train.vcproj", "{190904D8-CAFF-4493-AC9A-FA285A6C1D8D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1DA22033-9C6F-4139-A31C-3C6908A6551D} = {1DA22033-9C6F-4139-A31C-3C6908A6551D}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xor_test", "xor_test.vcproj", "{2BE07082-1F3C-4217-8822-1C7285DF8320}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1DA22033-9C6F-4139-A31C-3C6908A6551D} = {1DA22033-9C6F-4139-A31C-3C6908A6551D}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xor_train", "xor_train.vcproj", "{484A2923-7D83-4C18-A4CF-1E31C0DDFFFA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1DA22033-9C6F-4139-A31C-3C6908A6551D} = {1DA22033-9C6F-4139-A31C-3C6908A6551D}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{1DA22033-9C6F-4139-A31C-3C6908A6551D}.Debug.ActiveCfg = Debug|Win32
+		{1DA22033-9C6F-4139-A31C-3C6908A6551D}.Debug.Build.0 = Debug|Win32
+		{1DA22033-9C6F-4139-A31C-3C6908A6551D}.Release.ActiveCfg = Release|Win32
+		{1DA22033-9C6F-4139-A31C-3C6908A6551D}.Release.Build.0 = Release|Win32
+		{D70E0F4E-0737-4E56-8513-832ACE281B71}.Debug.ActiveCfg = Debug|Win32
+		{D70E0F4E-0737-4E56-8513-832ACE281B71}.Debug.Build.0 = Debug|Win32
+		{D70E0F4E-0737-4E56-8513-832ACE281B71}.Release.ActiveCfg = Release|Win32
+		{D70E0F4E-0737-4E56-8513-832ACE281B71}.Release.Build.0 = Release|Win32
+		{F9A9D49B-8096-4D06-8D36-B1B80F75CB74}.Debug.ActiveCfg = Debug|Win32
+		{F9A9D49B-8096-4D06-8D36-B1B80F75CB74}.Debug.Build.0 = Debug|Win32
+		{F9A9D49B-8096-4D06-8D36-B1B80F75CB74}.Release.ActiveCfg = Release|Win32
+		{F9A9D49B-8096-4D06-8D36-B1B80F75CB74}.Release.Build.0 = Release|Win32
+		{190904D8-CAFF-4493-AC9A-FA285A6C1D8D}.Debug.ActiveCfg = Debug|Win32
+		{190904D8-CAFF-4493-AC9A-FA285A6C1D8D}.Debug.Build.0 = Debug|Win32
+		{190904D8-CAFF-4493-AC9A-FA285A6C1D8D}.Release.ActiveCfg = Release|Win32
+		{190904D8-CAFF-4493-AC9A-FA285A6C1D8D}.Release.Build.0 = Release|Win32
+		{2BE07082-1F3C-4217-8822-1C7285DF8320}.Debug.ActiveCfg = Debug|Win32
+		{2BE07082-1F3C-4217-8822-1C7285DF8320}.Debug.Build.0 = Debug|Win32
+		{2BE07082-1F3C-4217-8822-1C7285DF8320}.Release.ActiveCfg = Release|Win32
+		{2BE07082-1F3C-4217-8822-1C7285DF8320}.Release.Build.0 = Release|Win32
+		{484A2923-7D83-4C18-A4CF-1E31C0DDFFFA}.Debug.ActiveCfg = Debug|Win32
+		{484A2923-7D83-4C18-A4CF-1E31C0DDFFFA}.Debug.Build.0 = Debug|Win32
+		{484A2923-7D83-4C18-A4CF-1E31C0DDFFFA}.Release.ActiveCfg = Release|Win32
+		{484A2923-7D83-4C18-A4CF-1E31C0DDFFFA}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal
