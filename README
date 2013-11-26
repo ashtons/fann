@@ -1,3 +1,7 @@
+Python extension dependencies
+SWIG
+
+
 Fast Artificial Neural Network Library (fann)
 
 Fast Artificial Neural Network Library implements multilayer
